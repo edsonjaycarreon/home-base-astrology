@@ -1,32 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './apod-container.styles.scss';
 
-class ApodContainer extends React.Component {
-    constructor(props){
-        super(props);
+import ApodContentContainer from '../apod-content-container/apod-content-container.component';
 
-        this.state = {
-            contents: [],
-        };
+const ApodContainer = () => {
+    const [contents, setContent] = useState({});
+    
+    const fetchData = async () => {
+        // const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=JCnOMNpV1hqN5z8dJZR85PtGYxW1bdJZOZ8cjP2i');
+        // const data = await response.json();
+        // setContent(data);
+
+       await fetch('https://api.nasa.gov/planetary/apod?api_key=JCnOMNpV1hqN5z8dJZR85PtGYxW1bdJZOZ8cjP2i')
+            .then(response => response.json())
+            .then(data => setContent(data))
+            .catch(error => console.log(error,'failed to fetch data'));
     }
+    
 
-    async componentDidMount(){
-        const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=JCnOMNpV1hqN5z8dJZR85PtGYxW1bdJZOZ8cjP2i');
-        const data = await response.json();
-        this.setState({contents: data});
-    }
 
-    render(){
-        const apodData = this.state;
-        return(
-            <div className="container">
-                <div className="dark-overlay">
+    useEffect(() => {
+       fetchData();
+    },[]);
 
-                </div>
-            </div>
-        )
-    }
+    
+
+
+
+    return(
+        <div className="container">
+                <ApodContentContainer {...contents} />
+        </div>
+   );
+
 }
 
 

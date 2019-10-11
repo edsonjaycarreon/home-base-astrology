@@ -6,7 +6,10 @@ import ApodContainer from './components/apod-container/apod-container.component'
 class App extends React.Component{
   render() {
     return(
-      <ApodContainer />
+      <div>
+        <ApodContainer />
+      </div>
+      
     )
   }
 }
