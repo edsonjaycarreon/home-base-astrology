@@ -4,7 +4,7 @@ import './apod-content.styles.scss';
 
 const ApodContent = ({ url, title, explanation, date, ...props}) => {
     return(
-        <div class="content-container">
+        <div className="content-container">
             <div className="image-container">
                 <img src={url} alt="" class="image" />
             </div>
