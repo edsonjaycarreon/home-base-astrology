@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react';
 import './nav-bar.styles.scss';
 
 const NavBar = () => { 
-    const [scrollHeight, setScrollHeight] = useState({
-        visible: true
-    });
+    const [scrollHeight, setScrollHeight] = useState({});
+    // const [isScrolled, setScrolled] = useState({isScrolled:false});
 
     useEffect(() => {
         window.onscroll = () => {
@@ -15,7 +14,7 @@ const NavBar = () => {
     });
     
     return(
-        <header id="header" className={`${scrollHeight.currentScrollHeight > 520 ? "header-sticky" : "header"}`}>
+        <header id="header" className={`${scrollHeight.currentScrollHeight > 100 ? "header-sticky" : "header"}`}>
             <nav>
                 <ul className="nav-items">
                     <li><a href="#">Home</a></li>

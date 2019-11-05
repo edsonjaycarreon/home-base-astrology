@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import './apod-content-container.styles.scss';
 
@@ -18,12 +19,14 @@ const ApodContentContainer = () =>{
         fetchData();
      },[]);
 
-    return(
-    <div className="apod-content-container">
-        <div className="head-title">ASTRONOMY PHOTO OF THE DAY</div>
-        <ApodContent {...contents} />
-    </div>
-    )
+    return (
+      <ScrollAnimation animateIn="fadeInLeft" animateOnce="true">
+        <div className="apod-content-container">
+          <div className="head-title">ASTRONOMY PHOTO OF THE DAY</div>
+          <ApodContent {...contents} />
+        </div>
+      </ScrollAnimation>
+    );
 }
 
 export default ApodContentContainer;

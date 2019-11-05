@@ -5,6 +5,7 @@ li,a{
     color: #ecf0f1;
 }
 
+
 .header{
     position: fixed;
     display: flex;
@@ -15,13 +16,16 @@ li,a{
     box-sizing: border-box;
     margin: 0;
     width: 100vw;
-
-
+    transition: background-color 500ms linear, padding 1000ms linear;
+    -webkit-transition: background-color 500ms linear, padding 1000ms linear;
+    -ms-transition: background-color 500ms linear, padding 1000ms linear;
+    z-index: 9;
 
     .nav-items{
         li{
             display: inline-block;
             padding: 0px 20px;
+            margin: 0;
 
             a{
                 transition: all 0.3s ease 0s;
@@ -48,15 +52,18 @@ li,a{
     padding-bottom: 0;
     width: 100vw;
     background-color: rgba($color: #000000, $alpha: 0.6);
-
-
+    transition: background-color 500ms linear, padding 1000ms linear;
+    -webkit-transition: background-color 500ms linear, padding 1000ms linear;
+    -ms-transition: background-color 500ms linear, padding 1000ms linear;
+    z-index: 9;
 
 
     .nav-items{
+        z-index: 9999;
         li{
-            display: inline-block;
             padding: 0px 20px;
-
+            display: inline-block;
+            margin: 0;
             a{
                 transition: all 0.3s ease 0s;
             }
